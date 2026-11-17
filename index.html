@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CraveBite | Fresh Food Delivered Fast</title>
+  <!-- Google Fonts: Poppins for modern, clean typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome for crisp icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= HEADER & STICKY NAVIGATION ================= -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="#home" class="logo">
+        <i class="fa-solid fa-fire-flame-curved"></i> Crave<span>Bite</span>
+      </a>
+
+      <!-- Live Search Bar -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search burgers, pizza, sushi..." aria-label="Search menu items" />
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- Cart Trigger & Mobile Menu Button -->
+      <div class="nav-actions">
+        <button class="cart-btn" id="openCartBtn" aria-label="Open shopping cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <span class="hero-tag">Hot & Fresh in 30 Mins</span>
+      <h1>Craving Something <span>Delicious?</span></h1>
+      <p>
+        Handcrafted burgers, wood-fired pizzas, fresh sushi rolls, and decadent desserts—made to order and delivered straight to your doorstep.
+      </p>
+      <a href="#menu" class="btn btn-primary">
+        Explore Menu <i class="fa-solid fa-arrow-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= INTERACTIVE MENU SECTION ================= -->
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Signature Menu</h2>
+        <p>Fresh ingredients, bold flavors, and generous portions.</p>
+      </div>
+
+      <!-- Category Filter Buttons -->
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="burgers">Burgers</button>
+        <button class="filter-btn" data-category="pizza">Pizza</button>
+        <button class="filter-btn" data-category="asian">Sushi & Bowls</button>
+        <button class="filter-btn" data-category="mains">Pasta & Salads</button>
+        <button class="filter-btn" data-category="desserts">Desserts</button>
+      </div>
+
+      <!-- Menu Grid (Populated dynamically via JavaScript) -->
+      <div class="menu-grid" id="menuGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT / FOOTER SECTION ================= -->
+ <!-- ================= CONTACT / FOOTER SECTION ================= -->
+  <footer id="contact" class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo footer-logo">
+          <i class="fa-solid fa-fire-flame-curved"></i> Crave<span>Bite</span>
+        </a>
+        <p>Bringing restaurant-quality meals straight to your table with zero hassle.</p>
+        <!-- Added Creator & Contact Details -->
+        <p class="creator-credit"><strong>Made by:</strong> Shivam</p>
+      </div>
+
+      <div class="footer-info">
+        <h3>Contact Us</h3>
+        <p><i class="fa-solid fa-location-dot"></i> 450 Culinary Ave, Food District</p>
+        <p><i class="fa-solid fa-phone"></i> 7982788118</p>
+        <p><i class="fa-solid fa-envelope"></i> hello@cravebite.com</p>
+      </div>
+
+      <div class="footer-hours">
+        <h3>Delivery Hours</h3>
+        <p>Mon – Fri: 10:00 AM – 11:00 PM</p>
+        <p>Sat – Sun: 11:00 AM – 12:30 AM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 CraveBite Delivery. All rights reserved. | Made with ❤️ by Shivam</p>
+    </div>
+  </footer>
+
+  <!-- ================= SLIDE-OUT CART DRAWER ================= -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Your Order</h3>
+      <button class="close-cart-btn" id="closeCartBtn" aria-label="Close cart">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Dynamic Cart Items List -->
+    <div class="cart-items" id="cartItems">
+      <!-- Rendered via JavaScript -->
+    </div>
+
+    <!-- Real-Time Cart Summary & Checkout -->
+    <div class="cart-footer">
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <div class="summary-row">
+        <span>Delivery Fee</span>
+        <span id="cartDelivery">$0.00</span>
+      </div>
+      <div class="summary-row total">
+        <span>Grand Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="btn btn-primary btn-block" id="checkoutBtn" disabled>
+        Proceed to Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- Toast Notification for Feedback -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
